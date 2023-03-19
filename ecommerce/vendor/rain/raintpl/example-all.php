@@ -1,7 +1,7 @@
 <?php
 
 // include
-require "vendor/autoload.php";
+require "library/Rain/autoload.php";
 
 // namespace
 use Rain\Tpl;
@@ -44,31 +44,31 @@ $var = array(
 
 );
 
-// // add a tag
-// Tpl::registerTag(	"({@.*?@})", // preg split
-//     "{@(.*?)@}", // preg match
-//     function( $params ){ // function called by the tag
-//         $value = $params[1][0];
-//         return "Translate: <b>$value</b>";
-//     }
-// );
+// add a tag
+Tpl::registerTag(	"({@.*?@})", // preg split
+    "{@(.*?)@}", // preg match
+    function( $params ){ // function called by the tag
+        $value = $params[1][0];
+        return "Translate: <b>$value</b>";
+    }
+);
 
 
-// // add a tag
-// Tpl::registerTag(	"({%.*?%})", // preg split
-//     "{%(.*?)(?:\|(.*?))%}", // preg match
-//     function( $params ){ // function called by the tag
-//         $value = $params[1][0];
-//         $value2 = $params[2][0];
+// add a tag
+Tpl::registerTag(	"({%.*?%})", // preg split
+    "{%(.*?)(?:\|(.*?))%}", // preg match
+    function( $params ){ // function called by the tag
+        $value = $params[1][0];
+        $value2 = $params[2][0];
 
-//         return "Translate: <b>$value</b> in <b>$value2</b>";
-//     }
-// );
+        return "Translate: <b>$value</b> in <b>$value2</b>";
+    }
+);
 
 // draw
 $tpl = new Tpl;
 $tpl->assign( $var );
-echo $tpl->draw( "index" );
+echo $tpl->draw( "test" );
 
 
 
